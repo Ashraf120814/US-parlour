@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Parlour Hair Salon | Luxury Hair Salon in Cincinnati, Ohio</title>
+<meta name="description" content="Parlour Hair Salon is Cincinnati's premier women-owned hair salon offering expert haircuts, balayage, blonding, coloring, styling, treatments, and luxury salon experiences. Rated 4.8★ by 297+ clients.">
+<meta property="og:title" content="Parlour Hair Salon | Luxury Hair Salon in Cincinnati, Ohio">
+<meta property="og:description" content="Parlour Hair Salon is Cincinnati's premier women-owned hair salon offering expert haircuts, balayage, blonding, coloring, styling, treatments, and luxury salon experiences. Rated 4.8★ by 297+ clients.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --primary:#1C1C1C;
+    --secondary:#C9A96E;
+    --accent:#F8F5F2;
+    --background:#FFFFFF;
+    --text:#222222;
+    --muted:#777777;
+    --serif:'Cormorant Garamond', serif;
+    --sans:'Jost', sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--sans);
+    color:var(--text);
+    background:var(--background);
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{display:block;max-width:100%;}
+  ul{list-style:none;}
+  button{font-family:inherit;cursor:pointer;border:none;background:none;}
+  .container{max-width:1240px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-family:var(--sans);
+    text-transform:uppercase;
+    letter-spacing:0.28em;
+    font-size:12px;
+    font-weight:500;
+    color:var(--secondary);
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+  }
+  .eyebrow::before{
+    content:'';
+    width:28px;height:1px;background:var(--secondary);
+    display:inline-block;
+  }
+  h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.05;color:var(--primary);}
+  p{color:var(--muted);line-height:1.7;}
+
+  /* ===== Signature strand divider ===== */
+  .strand{width:100%;height:40px;display:block;overflow:visible;}
+  .strand path{
+    fill:none;stroke:var(--secondary);stroke-width:1.4;stroke-linecap:round;
+    stroke-dasharray:900; stroke-dashoffset:900;
+    animation:draw 2.2s ease forwards;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  .strand.in-view path{animation-play-state:running;}
+
+  /* ===== Buttons ===== */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:15px 30px;
+    font-size:13px;letter-spacing:0.14em;text-transform:uppercase;font-weight:500;
+    transition:all .35s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{background:var(--primary);color:#fff;border:1px solid var(--primary);}
+  .btn-primary:hover{background:transparent;color:var(--primary);}
+  .btn-gold{background:var(--secondary);color:var(--primary);border:1px solid var(--secondary);}
+  .btn-gold:hover{background:transparent;color:var(--secondary);}
+  .btn-outline{background:transparent;color:var(--primary);border:1px solid var(--primary);}
+  .btn-outline:hover{background:var(--primary);color:#fff;}
+  .btn-outline-light{background:transparent;color:#fff;border:1px solid rgba(255,255,255,0.5);}
+  .btn-outline-light:hover{background:#fff;color:var(--primary);border-color:#fff;}
+
+  /* ===== Header ===== */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:1000;
+    padding:26px 0;
+    transition:all .4s ease;
+  }
+  header.scrolled{
+    background:rgba(255,255,255,0.96);
+    padding:16px 0;
+    box-shadow:0 1px 0 rgba(0,0,0,0.06);
+    backdrop-filter:blur(8px);
+  }
+  header .container{display:flex;align-items:center;justify-content:space-between;}
+  .logo{font-family:var(--serif);font-size:26px;letter-spacing:0.08em;color:#fff;transition:color .4s ease;}
+  header.scrolled .logo{color:var(--primary);}
+  nav.main-nav{display:flex;gap:40px;}
+  nav.main-nav a{
+    font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.85);
+    position:relative;padding-bottom:4px;transition:color .4s ease;
+  }
+  header.scrolled nav.main-nav a{color:var(--text);}
+  nav.main-nav a::after{
+    content:'';position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--secondary);
+    transition:width .3s ease;
+  }
+  nav.main-nav a:hover::after{width:100%;}
+  .header-cta{display:flex;align-items:center;gap:24px;}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;}
+  .burger span{width:24px;height:1px;background:#fff;transition:.4s;}
+  header.scrolled .burger span{background:var(--primary);}
+
+  /* ===== Hero ===== */
+  .hero{
+    min-height:100vh;position:relative;
+    background:var(--primary);
+    display:flex;align-items:center;
+    padding-top:120px;padding-bottom:80px;
+  }
+  .hero::before{
+    content:'';position:absolute;inset:0;
+    background:url('https://static.wixstatic.com/media/eccc73_372ac8451f7c4aab94727b5ddbfd9cee~mv2.jpg/v1/fit/w_2000,h_1200,al_c/eccc73_372ac8451f7c4aab94727b5ddbfd9cee~mv2.jpg') center/cover no-repeat;
+    opacity:0.28;
+  }
+  .hero::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(100deg, rgba(28,28,28,0.97) 20%, rgba(28,28,28,0.75) 55%, rgba(28,28,28,0.4) 100%);
+  }
+  .hero .container{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr 0.95fr;gap:40px;align-items:center;}
+  .hero-copy .eyebrow{color:var(--secondary);margin-bottom:22px;}
+  .hero-headline{
+    font-size:clamp(46px,6vw,80px);color:#fff;min-height:1.1em;
+  }
+  .hero-headline .accent{color:var(--secondary);font-style:italic;}
+  .hero-sub{
+    font-family:var(--serif);font-style:italic;font-weight:400;
+    font-size:clamp(22px,2.6vw,30px);color:rgba(255,255,255,0.82);
+    margin:22px 0 34px;min-height:2.6em;
+  }
+  .hero-actions{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:34px;}
+  .hero-meta{display:flex;gap:34px;flex-wrap:wrap;}
+  .hero-meta div{color:rgba(255,255,255,0.7);font-size:13px;}
+  .hero-meta strong{display:block;font-family:var(--serif);color:var(--secondary);font-size:26px;font-weight:500;}
+
+  /* Hero cards */
+  .hero-cards{position:relative;height:560px;}
+  .hcard{
+    position:absolute;width:230px;border-radius:2px;overflow:hidden;
+    box-shadow:0 30px 60px -20px rgba(0,0,0,0.55);
+    background:var(--primary);
+    transition:transform .5s ease;
+  }
+  .hcard:hover{transform:translateY(-10px) !important;}
+  .hcard img{height:290px;width:100%;object-fit:cover;}
+  .hcard-body{padding:18px 20px 22px;}
+  .hcard-brand{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--secondary);margin-bottom:6px;}
+  .hcard-title{font-family:var(--serif);font-size:19px;color:#fff;margin-bottom:14px;}
+  .hcard-cta{font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:#fff;display:inline-flex;align-items:center;gap:6px;border-bottom:1px solid rgba(255,255,255,0.4);padding-bottom:3px;}
+  .hcard.c1{left:0;top:0;z-index:3;transform:rotate(-3deg);}
+  .hcard.c2{left:150px;top:130px;z-index:2;transform:rotate(2deg);}
+  .hcard.c3{left:60px;top:300px;z-index:1;transform:rotate(-1.5deg);}
+
+  section{padding:110px 0;position:relative;}
+  .section-cream{background:var(--accent);}
+
+  /* ===== Membership strip ===== */
+  .membership{
+    background:var(--primary);
+    padding:0;
+  }
+  .membership-inner{
+    display:flex;align-items:center;justify-content:center;gap:20px;
+    padding:38px 0;text-align:center;
+  }
+  .membership-num{font-family:var(--serif);color:var(--secondary);font-size:44px;font-weight:500;}
+  .membership-label{color:rgba(255,255,255,0.75);font-size:13px;letter-spacing:0.1em;text-transform:uppercase;}
+
+  /* ===== Trust ===== */
+  .trust{padding-top:100px;padding-bottom:60px;text-align:center;}
+  .trust .eyebrow{justify-content:center;margin-bottom:18px;}
+  .trust .eyebrow::before{display:none;}
+  .trust h2{font-size:clamp(34px,4vw,52px);margin-bottom:26px;}
+  .badge-row{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:28px;flex-wrap:wrap;}
+  .badge{
+    display:flex;align-items:center;gap:10px;
+    border:1px solid rgba(0,0,0,0.1);padding:10px 20px;border-radius:40px;
+  }
+  .badge .stars{color:var(--secondary);letter-spacing:2px;}
+  .trust p.desc{max-width:620px;margin:0 auto;}
+
+  /* ===== Ghost headings marquee ===== */
+  .ghost-wrap{
+    background:var(--primary);
+    padding:90px 0;overflow:hidden;
+    position:relative;
+  }
+  .ghost-track{display:flex;white-space:nowrap;animation:scrollLeft 26s linear infinite;}
+  .ghost-track span{
+    font-family:var(--serif);
+    font-size:clamp(70px,11vw,150px);
+    -webkit-text-stroke:1px rgba(201,169,110,0.55);
+    color:transparent;
+    padding:0 50px;
+    font-weight:500;
+  }
+  @keyframes scrollLeft{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-50%);}
+  }
+
+  /* ===== Stylists ===== */
+  .stylists-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:56px;gap:24px;flex-wrap:wrap;}
+  .stylists-head h2{font-size:clamp(34px,4vw,52px);max-width:560px;}
+  .stylist-row{display:flex;gap:28px;overflow-x:auto;padding-bottom:20px;scroll-snap-type:x mandatory;}
+  .stylist-row::-webkit-scrollbar{height:4px;}
+  .stylist-row::-webkit-scrollbar-thumb{background:var(--secondary);}
+  .scard{
+    flex:0 0 260px;scroll-snap-align:start;
+    position:relative;overflow:hidden;
+  }
+  .scard img{height:340px;width:100%;object-fit:cover;filter:grayscale(15%);transition:transform .6s ease, filter .6s ease;}
+  .scard:hover img{transform:scale(1.06);filter:grayscale(0%);}
+  .scard-info{padding:18px 4px;}
+  .scard-name{font-family:var(--serif);font-size:22px;color:var(--primary);}
+  .scard-role{font-size:12px;letter-spacing:0.1em;text-transform:uppercase;color:var(--secondary);margin-top:4px;}
+
+  /* ===== Services / Programs ===== */
+  .services-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:20px;flex-wrap:wrap;gap:20px;}
+  .services-head h2{font-size:clamp(34px,4vw,52px);}
+  .service-row{
+    display:flex;align-items:center;gap:40px;
+    padding:34px 0;border-top:1px solid rgba(0,0,0,0.1);
+    position:relative;cursor:pointer;
+    transition:padding-left .4s ease;
+  }
+  .service-row:last-child{border-bottom:1px solid rgba(0,0,0,0.1);}
+  .service-row:hover{padding-left:18px;}
+  .service-num{font-family:var(--serif);font-size:22px;color:var(--secondary);flex:0 0 50px;}
+  .service-main{flex:1;display:flex;flex-direction:column;gap:6px;}
+  .service-title{font-family:var(--serif);font-size:clamp(26px,3vw,36px);color:var(--primary);}
+  .service-desc{color:var(--muted);font-size:15px;max-width:520px;}
+  .service-thumb{
+    width:110px;height:80px;overflow:hidden;flex:0 0 110px;
+    opacity:0;transform:scale(0.9);transition:all .4s ease;
+  }
+  .service-row:hover .service-thumb{opacity:1;transform:scale(1);}
+  .service-thumb img{width:100%;height:100%;object-fit:cover;}
+  .service-arrow{font-size:20px;color:var(--primary);flex:0 0 20px;transition:transform .4s ease;}
+  .service-row:hover .service-arrow{transform:translateX(6px);color:var(--secondary);}
+
+  /* ===== Facilities ===== */
+  .facilities-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+  .facilities-copy h2{font-size:clamp(34px,4vw,50px);margin-bottom:20px;}
+  .facilities-copy p{margin-bottom:36px;max-width:460px;}
+  .fac-cards{display:flex;flex-direction:column;gap:18px;}
+  .fac-card{display:flex;gap:18px;align-items:flex-start;border-left:2px solid var(--secondary);padding-left:20px;}
+  .fac-card h4{font-family:var(--serif);font-size:20px;margin-bottom:6px;}
+  .fac-card p{font-size:14px;margin:0;}
+  .facilities-media{position:relative;height:560px;}
+  .facilities-media img{position:absolute;object-fit:cover;box-shadow:0 30px 60px -20px rgba(0,0,0,0.35);}
+  .fm1{width:78%;height:75%;top:0;left:0;z-index:2;}
+  .fm2{width:52%;height:48%;bottom:0;right:0;z-index:3;border:6px solid #fff;}
+
+  /* ===== Stats ===== */
+  .stats{background:var(--primary);}
+  .stats-grid{display:grid;grid-template-columns:repeat(4,1fr);text-align:center;}
+  .stat-item{padding:0 20px;border-left:1px solid rgba(255,255,255,0.12);}
+  .stat-item:first-child{border-left:none;}
+  .stat-num{font-family:var(--serif);color:var(--secondary);font-size:clamp(38px,4.5vw,56px);font-weight:500;}
+  .stat-label{color:rgba(255,255,255,0.7);font-size:12px;letter-spacing:0.12em;text-transform:uppercase;margin-top:8px;}
+
+  /* ===== Testimonials ===== */
+  .testi-head{text-align:center;margin-bottom:56px;}
+  .testi-head .eyebrow{justify-content:center;margin-bottom:16px;}
+  .testi-head .eyebrow::before{display:none;}
+  .testi-head h2{font-size:clamp(34px,4vw,50px);}
+  .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .t-card{background:#fff;border:1px solid rgba(0,0,0,0.08);padding:38px 32px;}
+  .t-stars{color:var(--secondary);letter-spacing:3px;margin-bottom:18px;font-size:15px;}
+  .t-quote{font-family:var(--serif);font-size:19px;line-height:1.5;color:var(--text);margin-bottom:22px;font-style:italic;}
+  .t-name{font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);}
+
+  /* ===== Final CTA ===== */
+  .final-cta{
+    background:var(--primary);text-align:center;position:relative;overflow:hidden;
+  }
+  .final-cta::before{
+    content:'';position:absolute;inset:0;
+    background:url('https://static.wixstatic.com/media/eccc73_a021ffea782a45b78c642a95023423d5~mv2_d_4800_3840_s_4_2.jpg/v1/fit/w_1800,h_1000,al_c/eccc73_a021ffea782a45b78c642a95023423d5~mv2_d_4800_3840_s_4_2.jpg') center/cover;
+    opacity:0.22;
+  }
+  .final-cta .container{position:relative;z-index:2;}
+  .final-cta h2{color:#fff;font-size:clamp(36px,5vw,60px);margin-bottom:24px;}
+  .final-cta p{color:rgba(255,255,255,0.7);max-width:500px;margin:0 auto 36px;}
+
+  /* ===== Footer ===== */
+  footer{background:var(--primary);color:rgba(255,255,255,0.7);padding:90px 0 30px;}
+  .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;margin-bottom:70px;}
+  .footer-brand .logo{margin-bottom:18px;display:inline-block;}
+  .footer-brand p{max-width:280px;font-size:14px;margin-bottom:26px;}
+  .footer-col h5{color:#fff;font-family:var(--serif);font-size:18px;margin-bottom:22px;font-weight:500;}
+  .footer-col ul li{margin-bottom:13px;}
+  .footer-col ul li a{font-size:14px;transition:color .3s;}
+  .footer-col ul li a:hover{color:var(--secondary);}
+  .footer-contact li{font-size:14px;margin-bottom:13px;}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.12);padding-top:26px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+    font-size:12px;color:rgba(255,255,255,0.45);
+  }
+
+  /* ===== Modal ===== */
+  .modal-overlay{
+    position:fixed;inset:0;background:rgba(28,28,28,0.7);
+    display:flex;align-items:center;justify-content:center;
+    z-index:2000;opacity:0;pointer-events:none;transition:opacity .35s ease;padding:20px;
+  }
+  .modal-overlay.open{opacity:1;pointer-events:all;}
+  .modal-box{
+    background:#fff;max-width:520px;width:100%;padding:48px 40px;position:relative;
+    max-height:88vh;overflow-y:auto;
+    transform:translateY(20px);transition:transform .35s ease;
+  }
+  .modal-overlay.open .modal-box{transform:translateY(0);}
+  .modal-close{position:absolute;top:20px;right:22px;font-size:22px;color:var(--muted);background:none;}
+  .modal-box h3{font-size:30px;margin-bottom:8px;}
+  .modal-box .eyebrow{margin-bottom:20px;}
+  .modal-box .eyebrow::before{display:none;}
+  .form-group{margin-bottom:18px;}
+  .form-group label{display:block;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-bottom:7px;}
+  .form-group input,.form-group select,.form-group textarea{
+    width:100%;padding:12px 14px;border:1px solid rgba(0,0,0,0.15);font-family:var(--sans);font-size:14px;
+    background:var(--accent);
+  }
+  .form-group textarea{resize:vertical;min-height:80px;}
+  .form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:2px solid var(--secondary);outline-offset:1px;}
+  .modal-box .btn{width:100%;justify-content:center;margin-top:6px;}
+  .success-box{text-align:center;padding:20px 0;}
+  .success-box .check{
+    width:60px;height:60px;border-radius:50%;background:var(--accent);border:2px solid var(--secondary);
+    display:flex;align-items:center;justify-content:center;margin:0 auto 22px;font-size:26px;color:var(--secondary);
+  }
+
+  /* ===== Reveal on scroll ===== */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;}
+  .reveal.in-view{opacity:1;transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important;transition-duration:0.01ms !important;}
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width:1024px){
+    .hero .container{grid-template-columns:1fr;}
+    .hero-cards{display:none;}
+    .facilities-grid{grid-template-columns:1fr;}
+    .facilities-media{height:400px;margin-top:20px;}
+    .footer-top{grid-template-columns:1fr 1fr;}
+    .testi-grid{grid-template-columns:1fr;}
+    .stats-grid{grid-template-columns:repeat(2,1fr);row-gap:36px;}
+    .stat-item:nth-child(3){border-left:none;}
+  }
+  @media (max-width:768px){
+    nav.main-nav,.header-cta .btn{display:none;}
+    .burger{display:flex;}
+    .services-head, .stylists-head{flex-direction:column;align-items:flex-start;}
+    .footer-top{grid-template-columns:1fr;gap:44px;}
+    section{padding:70px 0;}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header id="siteHeader">
+  <div class="container">
+    <a href="#top" class="logo">PARLOUR</a>
+    <nav class="main-nav">
+      <a href="#services">Services</a>
+      <a href="#stylists">Stylists</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="header-cta">
+      <button class="btn btn-gold" onclick="openModal()">Book Now</button>
+    </div>
+    <button class="burger" onclick="document.querySelector('.main-nav').classList.toggle('open')"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="container">
+    <div class="hero-copy">
+      <div class="eyebrow">Cincinnati's Premier Salon</div>
+      <h1 class="hero-headline" id="heroHeadline">Love Your Hair</h1>
+      <div class="hero-sub" id="heroSub">Relax,<br>Refresh</div>
+      <div class="hero-actions">
+        <button class="btn btn-gold" onclick="openModal()">Book Your Appointment</button>
+        <a href="#services" class="btn btn-outline-light">Explore Services</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>4.8★</strong>297+ Five-Star Reviews</div>
+        <div><strong>10K+</strong>Happy Clients</div>
+        <div><strong>15+</strong>Years of Experience</div>
+      </div>
+    </div>
+    <div class="hero-cards">
+      <div class="hcard c1">
+        <img src="https://static.wixstatic.com/media/eccc73_dd094ad644a749e99b8cfa5d7b5c21e1~mv2.jpg/v1/fit/w_500,h_650,al_c/eccc73_dd094ad644a749e99b8cfa5d7b5c21e1~mv2.jpg" alt="Personalized hairstyle at Parlour">
+        <div class="hcard-body">
+          <div class="hcard-brand">Signature Cuts</div>
+          <div class="hcard-title">Personalized Hairstyles</div>
+          <div class="hcard-cta" onclick="openModal()">Book Now →</div>
+        </div>
+      </div>
+      <div class="hcard c2">
+        <img src="https://static.wixstatic.com/media/eccc73_c42d5efff0024d5abb3b108c3faefba2~mv2_d_3744_4680_s_4_2.jpg/v1/fit/w_500,h_650,al_c/eccc73_c42d5efff0024d5abb3b108c3faefba2~mv2_d_3744_4680_s_4_2.jpg" alt="Balayage highlights hair coloring">
+        <div class="hcard-body">
+          <div class="hcard-brand">Luxury Color</div>
+          <div class="hcard-title">Balayage &amp; Highlights</div>
+          <div class="hcard-cta" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">Explore Colors →</div>
+        </div>
+      </div>
+      <div class="hcard c3">
+        <img src="https://static.wixstatic.com/media/eccc73_909569fbd93145138163649f954387d7~mv2_d_1409_1762_s_2.jpg/v1/fit/w_500,h_650,al_c/eccc73_909569fbd93145138163649f954387d7~mv2_d_1409_1762_s_2.jpg" alt="Healthy hair treatment at Parlour salon">
+        <div class="hcard-body">
+          <div class="hcard-brand">Hair Spa</div>
+          <div class="hcard-title">Healthy Hair Treatments</div>
+          <div class="hcard-cta" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">View Services →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MEMBERSHIP STRIP ================= -->
+<div class="membership">
+  <div class="container membership-inner">
+    <div class="membership-num">10K+</div>
+    <div class="membership-label">Happy Clients</div>
+  </div>
+</div>
+
+<!-- ================= TRUST ================= -->
+<section class="trust reveal">
+  <div class="container">
+    <div class="eyebrow">Reputation</div>
+    <h2>Trusted By Cincinnati</h2>
+    <div class="badge-row">
+      <div class="badge"><span class="stars">★★★★★</span><span>4.8★</span></div>
+      <div class="badge"><span>297+ Five-Star Reviews</span></div>
+    </div>
+    <p class="desc">Our stylists combine creativity, precision, and personalized consultations to create looks our clients love.</p>
+  </div>
+</section>
+
+<!-- ================= GHOST HEADINGS MARQUEE ================= -->
+<div class="ghost-wrap">
+  <div class="ghost-track" id="ghostTrack">
+    <span>Luxury</span><span>Beauty</span><span>Hair</span><span>Studio</span>
+    <span>Luxury</span><span>Beauty</span><span>Hair</span><span>Studio</span>
+  </div>
+</div>
+
+<!-- ================= STYLISTS ================= -->
+<section id="stylists">
+  <div class="container">
+    <div class="stylists-head reveal">
+      <h2>Meet Our Stylists</h2>
+      <a href="#contact" class="btn btn-outline" onclick="event.preventDefault();openModal()">Book With A Stylist</a>
+    </div>
+    <div class="stylist-row reveal">
+      <div class="scard">
+        <img src="https://static.wixstatic.com/media/eccc73_e733a3d3d872473ca3b1e5ce9d23db11~mv2.jpg/v1/fit/w_500,h_650/eccc73_e733a3d3d872473ca3b1e5ce9d23db11~mv2.jpg" alt="Jessie, Owner &amp; Senior Stylist at Parlour">
+        <div class="scard-info"><div class="scard-name">Jessie</div><div class="scard-role">Owner &amp; Senior Stylist</div></div>
+      </div>
+      <div class="scard">
+        <img src="https://static.wixstatic.com/media/eccc73_793857c95ef64e01b9c6bd5468904b91~mv2.jpg/v1/fit/w_500,h_650/eccc73_793857c95ef64e01b9c6bd5468904b91~mv2.jpg" alt="Paige, Color Specialist at Parlour">
+        <div class="scard-info"><div class="scard-name">Paige</div><div class="scard-role">Color Specialist</div></div>
+      </div>
+      <div class="scard">
+        <img src="https://static.wixstatic.com/media/eccc73_c4ebbea704a448e98ba438eaff8f3149~mv2.jpg/v1/fit/w_500,h_650/eccc73_c4ebbea704a448e98ba438eaff8f3149~mv2.jpg" alt="Katie, Hair Designer at Parlour">
+        <div class="scard-info"><div class="scard-name">Katie</div><div class="scard-role">Hair Designer</div></div>
+      </div>
+      <div class="scard">
+        <img src="https://static.wixstatic.com/media/eccc73_843af7aced2f453ab0ad3ca642483c69~mv2.jpg/v1/fit/w_500,h_650/eccc73_843af7aced2f453ab0ad3ca642483c69~mv2.jpg" alt="Chrissy, Stylist at Parlour">
+        <div class="scard-info"><div class="scard-name">Chrissy</div><div class="scard-role">Stylist</div></div>
+      </div>
+      <div class="scard">
+        <img src="https://static.wixstatic.com/media/eccc73_150ac4e21c714563937a7d16ad615a15~mv2.jpg/v1/fit/w_500,h_650/eccc73_150ac4e21c714563937a7d16ad615a15~mv2.jpg" alt="Candace, Stylist at Parlour">
+        <div class="scard-info"><div class="scard-name">Candace</div><div class="scard-role">Stylist</div></div>
+      </div>
+      <div class="scard">
+        <img src="https://static.wixstatic.com/media/eccc73_af2bdb325f994a498714377c123fc9c8~mv2.jpg/v1/fit/w_500,h_650/eccc73_af2bdb325f994a498714377c123fc9c8~mv2.jpg" alt="Lauren, Stylist at Parlour">
+        <div class="scard-info"><div class="scard-name">Lauren</div><div class="scard-role">Stylist</div></div>
+      </div>
+      <div class="scard">
+        <img src="https://static.wixstatic.com/media/eccc73_8087c4d727984c35baeb64ac01be5022~mv2.jpg/v1/fit/w_500,h_650/eccc73_8087c4d727984c35baeb64ac01be5022~mv2.jpg" alt="Andrea, Stylist at Parlour">
+        <div class="scard-info"><div class="scard-name">Andrea</div><div class="scard-role">Stylist</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVICES ================= -->
+<section id="services" class="section-cream">
+  <div class="container">
+    <div class="services-head reveal">
+      <div>
+        <div class="eyebrow">What We Offer</div>
+        <h2 style="margin-top:16px;">Our Services</h2>
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="service-row" onclick="openModal()">
+        <div class="service-num">01</div>
+        <div class="service-main">
+          <div class="service-title">Women's Haircuts</div>
+          <div class="service-desc">Precision cutting for every style.</div>
+        </div>
+        <div class="service-thumb"><img src="https://static.wixstatic.com/media/eccc73_1032553dbff54577b8409fd059c5d31b~mv2.jpg/v1/fit/w_300,h_220/eccc73_1032553dbff54577b8409fd059c5d31b~mv2.jpg" alt="Women's haircut"></div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row" onclick="openModal()">
+        <div class="service-num">02</div>
+        <div class="service-main">
+          <div class="service-title">Hair Coloring</div>
+          <div class="service-desc">Balayage, highlights, blonding &amp; custom color.</div>
+        </div>
+        <div class="service-thumb"><img src="https://static.wixstatic.com/media/eccc73_cd2f6d68a2724c3e9d877a2c128eb08b~mv2.jpg/v1/fit/w_300,h_220/eccc73_cd2f6d68a2724c3e9d877a2c128eb08b~mv2.jpg" alt="Balayage transformation"></div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row" onclick="openModal()">
+        <div class="service-num">03</div>
+        <div class="service-main">
+          <div class="service-title">Hair Treatments</div>
+          <div class="service-desc">Keratin, deep conditioning and scalp therapy.</div>
+        </div>
+        <div class="service-thumb"><img src="https://static.wixstatic.com/media/eccc73_fe7fa8e47fd648e39e14c89d4e4454d8~mv2.jpg/v1/fit/w_300,h_220/eccc73_fe7fa8e47fd648e39e14c89d4e4454d8~mv2.jpg" alt="Hair treatment"></div>
+        <div class="service-arrow">→</div>
+      </div>
+      <div class="service-row" onclick="openModal()">
+        <div class="service-num">04</div>
+        <div class="service-main">
+          <div class="service-title">Bridal &amp; Special Events</div>
+          <div class="service-desc">Luxury styling for weddings and celebrations.</div>
+        </div>
+        <div class="service-thumb"><img src="https://static.wixstatic.com/media/eccc73_34dab5e39d69490e829377d6f91fb99a~mv2.jpg/v1/fit/w_300,h_220/eccc73_34dab5e39d69490e829377d6f91fb99a~mv2.jpg" alt="Bridal styling"></div>
+        <div class="service-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FACILITIES ================= -->
+<section id="gallery">
+  <div class="container facilities-grid">
+    <div class="facilities-copy reveal">
+      <div class="eyebrow">Our Space</div>
+      <h2 style="margin-top:16px;">Experience Our Beautiful Salon</h2>
+      <p>Relax in our modern salon featuring premium products, talented stylists, and a welcoming atmosphere designed for every client.</p>
+      <div class="fac-cards">
+        <div class="fac-card">
+          <div>
+            <h4>Luxury Styling Stations</h4>
+            <p>Bright, modern workspaces designed for precision styling.</p>
+          </div>
+        </div>
+        <div class="fac-card">
+          <div>
+            <h4>Luxury Shampoo Lounge</h4>
+            <p>Relaxing head massage and hair spa experience.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="facilities-media reveal">
+      <img class="fm1" src="https://static.wixstatic.com/media/eccc73_a021ffea782a45b78c642a95023423d5~mv2_d_4800_3840_s_4_2.jpg/v1/fit/w_900,h_700/eccc73_a021ffea782a45b78c642a95023423d5~mv2_d_4800_3840_s_4_2.jpg" alt="Luxury salon interior at Parlour">
+      <img class="fm2" src="https://static.wixstatic.com/media/eccc73_adfe6be590c244348390ee971cc1394d~mv2_d_4800_3840_s_4_2.jpg/v1/fit/w_600,h_500/eccc73_adfe6be590c244348390ee971cc1394d~mv2_d_4800_3840_s_4_2.jpg" alt="Shampoo lounge station at Parlour">
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="stats">
+  <div class="container stats-grid reveal">
+    <div class="stat-item"><div class="stat-num">297+</div><div class="stat-label">Five-Star Reviews</div></div>
+    <div class="stat-item"><div class="stat-num">4.8★</div><div class="stat-label">Google Rating</div></div>
+    <div class="stat-item"><div class="stat-num">10K+</div><div class="stat-label">Happy Clients</div></div>
+    <div class="stat-item"><div class="stat-num">15+</div><div class="stat-label">Years of Experience</div></div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIALS ================= -->
+<section id="reviews" class="section-cream">
+  <div class="container">
+    <div class="testi-head reveal">
+      <div class="eyebrow">Client Love</div>
+      <h2 style="margin-top:16px;">What Our Clients Say</h2>
+    </div>
+    <div class="testi-grid reveal">
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Caitlin always takes her time and makes sure my haircut turns out exactly how I imagined."</p>
+        <div class="t-name">— Jackie Roberts</div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"Paige understood exactly what worked for my hair type and lifestyle."</p>
+        <div class="t-name">— Urvija Patel</div>
+      </div>
+      <div class="t-card">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-quote">"I've been coming here for years. The blonding services are absolutely amazing."</p>
+        <div class="t-name">— Andrea Siefring</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final-cta" id="contact">
+  <div class="container">
+    <div class="eyebrow" style="justify-content:center;">Ready When You Are</div>
+    <h2 style="margin-top:16px;">Book Your Appointment</h2>
+    <p>Step into Parlour and let our stylists craft a look that's entirely yours.</p>
+    <button class="btn btn-gold" onclick="openModal()">Book Your Appointment</button>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="logo">PARLOUR</a>
+        <p>Cincinnati's premier women-owned hair salon — creativity, precision, and personalized care for every client.</p>
+        <button class="btn btn-gold" onclick="openModal()">Book Your Appointment</button>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">Haircuts</a></li>
+          <li><a href="#services">Hair Coloring</a></li>
+          <li><a href="#services">Hair Treatments</a></li>
+          <li><a href="#services">Bridal Styling</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Salon</h5>
+        <ul>
+          <li><a href="#gallery">About</a></li>
+          <li><a href="#stylists">Stylists</a></li>
+          <li><a href="#reviews">Reviews</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul class="footer-contact">
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#contact">Careers</a></li>
+          <li><a href="#" onclick="event.preventDefault();openModal()">Book Online</a></li>
+        </ul>
+        <ul class="footer-contact" style="margin-top:24px;">
+          <li>hello@salonparlour.com</li>
+          <li>+1 (513) 961-4247</li>
+          <li>2600 Woodburn Ave<br>Cincinnati, OH 45206</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Parlour Hair Salon. All rights reserved.</div>
+      <div>Cincinnati, Ohio</div>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= MODAL ================= -->
+<div class="modal-overlay" id="modalOverlay" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">&times;</button>
+    <div id="formView">
+      <div class="eyebrow">Get In Touch</div>
+      <h3>Book Your Appointment</h3>
+      <p style="margin-bottom:24px;">Tell us a bit about what you're looking for and we'll confirm your booking.</p>
+      <form id="bookingForm" onsubmit="return submitForm(event)">
+        <div class="form-group"><label>Full Name</label><input type="text" required></div>
+        <div class="form-group"><label>Email</label><input type="email" required></div>
+        <div class="form-group"><label>Phone Number</label><input type="tel" required></div>
+        <div class="form-group">
+          <label>Preferred Service</label>
+          <select required>
+            <option value="">Select a service</option>
+            <option>Women's Haircuts</option>
+            <option>Hair Coloring</option>
+            <option>Hair Treatments</option>
+            <option>Bridal &amp; Special Events</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Preferred Date</label><input type="date" required></div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Anything else we should know?"></textarea></div>
+        <button type="submit" class="btn btn-gold">Book Appointment</button>
+      </form>
+    </div>
+    <div id="successView" style="display:none;">
+      <div class="success-box">
+        <div class="check">✓</div>
+        <h3>Thank You!</h3>
+        <p>Thank you! Your appointment request has been received. Our team will contact you shortly to confirm your booking.</p>
+        <button class="btn btn-outline" style="margin-top:20px;" onclick="closeModal()">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Header scroll state
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // Hero rotating headlines
+  const headlines = ["Love Your Hair","Beautiful Hair Starts Here","Confidence Begins Here"];
+  const subs = [["Relax,","Refresh"],["Look Better,","Feel Better"],["Relax,","Refresh"]];
+  let hIdx = 0;
+  const headlineEl = document.getElementById('heroHeadline');
+  const subEl = document.getElementById('heroSub');
+  function rotateHero(){
+    hIdx = (hIdx+1) % headlines.length;
+    headlineEl.style.opacity = 0;
+    subEl.style.opacity = 0;
+    setTimeout(()=>{
+      headlineEl.textContent = headlines[hIdx];
+      subEl.innerHTML = subs[hIdx][0] + "<br>" + subs[hIdx][1];
+      headlineEl.style.transition = 'opacity .6s ease';
+      subEl.style.transition = 'opacity .6s ease';
+      headlineEl.style.opacity = 1;
+      subEl.style.opacity = 1;
+    },400);
+  }
+  setInterval(rotateHero, 4200);
+
+  // Modal
+  function openModal(){
+    document.getElementById('modalOverlay').classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeModal(){
+    document.getElementById('modalOverlay').classList.remove('open');
+    document.body.style.overflow='';
+    document.getElementById('formView').style.display='block';
+    document.getElementById('successView').style.display='none';
+    document.getElementById('bookingForm').reset();
+  }
+  function submitForm(e){
+    e.preventDefault();
+    document.getElementById('formView').style.display='none';
+    document.getElementById('successView').style.display='block';
+    return false;
+  }
+  document.addEventListener('keydown', (e)=>{ if(e.key==='Escape') closeModal(); });
+
+  // Reveal on scroll
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('in-view'); }
+    });
+  }, {threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
